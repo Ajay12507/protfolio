@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        nav {
+            background-color: blueviolet;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            color: white;
+            position: -webkit-sticky;
+            /* For Safari */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .profile a {
+            color: white;
+            text-decoration: none;
+        }
+
+        #navbar a {
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        #navbar a:hover {
+            color: aqua;
+            text-decoration: underline;
+            font-weight: 900;
+        }
+
+        #navbar {
+            display: flex;
+            align-items: center;
+        }
+
+        span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #container {
+            overflow: hidden;
+        }
+
+        #gif,
+        #content {
+            float: left;
+            width: 45%;
+            margin: 2.5%;
+        }
+
+        #content {
+            height: 350px;
+            align-items: center;
+            padding-top: 135px;
+        }
+
+        #content h1 {
+            color: blueviolet;
+            word-spacing: 5px;
+            font-weight: bold;
+        }
+
+        #content p {
+            font-size: 20px;
+        }
+
+        .skill {
+            float: left;
+            width: 200px;
+            margin: 2.5%;
+            height: 200px;
+            background-color: rgb(235, 237, 239);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: rgb(222, 220, 220) 5px 5px 5px 5px;
+            text-align: center;
+            margin-left: 70px;
+        }
+
+        div {
+            overflow: hidden;
+        }
+
+        .project-section {
+            margin: 70px;
+        }
+
+        .project-section h2 {
+            color: blueviolet;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .project {
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .project-description {
+            margin: 5px 0 0 20px;
+            font-size: 1.2em;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 20px 0;
+        }
+
+        img:hover {
+            filter: grayscale(120);
+        }
+
+        .container1 {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            text-align: center;
+            margin-left: 25%;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #8e44ad;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #732d91;
+        }
+
+        .arrow {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .arrow img {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    border-radius: 10px;
+}
+
+#close-modal {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#close-modal:hover {
+    background-color: #8e44ad;
+}
+ 
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="profile">
+            <p>
+                <span> AJAY NAIK<br></span>
+                <a href="mailto:naikajay952@gmail.com">📧 naikajay952@gmail.com</a><br>
+                📞 8296088022
+            </p>
+        </div>
+        <div id="navbar">
+            <a href="#">About Me</a>
+            <a href="#">Skills</a>
+            <a href="#">Projects</a>
+            <a href="#">Recommendation</a>
+        </div>
+    </nav>
+
+    <div id="container">
+        <div id="gif">
+            <img src="tenor.gif" alt="">
+        </div>
+
+        <div id="content">
+            <h1>Hi, I'm AJAY NAIK!</h1>
+            <p>
+                I am a full stack developer with 2 years of experience in both application and
+                presentation layers. I have worked on applications and microservices deployed on IBM Cloud. I am an
+                avid user of IBM Watson Services and have worked on Watson Assistant NLU, Sentiment analyzer to name a
+                few.
+            </p>
+        </div>
+    </div>
+
+    <div id="skillDiv" style="margin-left: 70px;">
+        <div class="skill">
+            <img src="javascript-web-development-languages-1.png" alt="" style="width:200px;height: 120px;">
+            <h3>JavaScript</h3>
+            Learning
+        </div>
+        <div class="skill">
+            <img src="th (1).jpeg" alt="" style="width:100px;height: 120px;padding-left: 25%;">
+            <h3>HTML</h3>
+            Learning
+        </div>
+        <div class="skill">
+            <img src="th (2).jpeg" alt="" style="width:200px;height: 120px;">
+            <h3>CSS</h3>
+            Learning
+        </div>
+        <div class="skill">
+            <img src="th (3).jpeg" alt="" style="width:200px;height: 120px;">
+            <h3>PHP</h3>
+            Learning
+        </div>
+        <div class="skill">
+            <img src="th (4).jpeg" alt="" style="width:200px;height: 120px;">
+            <h3>React</h3>
+            Learning
+        </div>
+        <div class="skill">
+            <img src="th (5).jpeg" alt="" style="width:200px;height: 120px;">
+            <h3>Angular</h3>
+            Learning
+        </div>
+    </div>
+
+    <div class="project-section">
+        <h2>Projects</h2>
+        <div class="project">
+            <p class="project-title">Chatbot</p>
+            <p class="project-description">• Developed a secure website integrated with chatbot for an automobile client
+                using HTML, CSS, JavaScript and IBM Watson Assistant</p>
+        </div>
+        <hr>
+
+        <div class="project">
+            <p class="project-title">Sentiment Analyzer</p>
+            <p class="project-description">• Developed and deployed a sentiment analyzer for the box review section of
+                an eCommerce platform using IBM NLU</p>
+        </div>
+        <hr>
+
+        <div class="project">
+            <p class="project-title">Fashion Website</p>
+            <p class="project-description">• Created a styled multi-page website for a new player in the fashion
+                industry and integrated it with a shopping cart, using Stripe for payment gateway</p>
+        </div>
+    </div>
+    <hr>
+
+    <div id="recommendation-section" style="margin-left: 70px;">
+        <h2>Recommendation</h2>
+        <!-- Recommendations will be dynamically added here -->
+    </div>
+
+    <div class="container1">
+        <h1>Leave a Recommendation</h1>
+        <form id="recommendation-form">
+            <div class="form-group">
+                <label for="name">Name (Optional)</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div id="thank-you-modal" class="modal">
+        <div class="modal-content">
+            <p>Thanks for leaving a recommendation!</p>
+            <button id="close-modal">Ok</button>
+        </div>
+    </div>
+    <a href="#top" id="home-button" class="home-button" title="Back to top">&#8679;</a>
+
+    <script>
+      document.getElementById('recommendation-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Get the input values
+    var name = document.getElementById('name').value;
+    var message = document.getElementById('message').value;
+
+    // Create a new recommendation div
+    var recommendationDiv = document.createElement('div');
+    recommendationDiv.classList.add('skill');
+
+    // Add the name and message to the div
+    var recommendationContent = '<h3>' + (name ? name : 'Anonymous') + '</h3>' + '<p>' + message + '</p>';
+    recommendationDiv.innerHTML = recommendationContent;
+
+    // Append the new recommendation to the recommendations section
+    var recommendationsSection = document.getElementById('recommendation-section');
+    recommendationsSection.appendChild(recommendationDiv);
+
+    // Clear the form inputs
+    document.getElementById('recommendation-form').reset();
+
+    // Show thank you modal
+    var modal = document.getElementById('thank-you-modal');
+    modal.style.display = 'block';
+
+    // Close the modal when the user clicks the button
+    document.getElementById('close-modal').onclick = function() {
+        modal.style.display = 'none';
+    };
+
+    // Close the modal when the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+});
+
+    </script>
+</body>
+
+</html>
